@@ -51,19 +51,20 @@ while stop_game == False:
 
     if player1 == True:
         symbol = "X"
-        try:
-            step = int(input(player_name_1 + ": "))
-        except ValueError:
-            print('Ошибка: Введите число, номер ячейки!')
+
+        step = input(player_name_1 + ": ")
+        if not step.isdigit():
+            print('Введите числовое значение')
             continue
+        step = int(step)
     else:
         symbol = "O"
-        try:
-            step = int(input(player_name_2 + ": "))
-        except ValueError:
-            print('Ошибка: Введите число, номер ячейки!')
-            continue
 
+        step = input(player_name_2 + ": ")
+        if not step.isdigit():
+            print('Введите числовое значение')
+            continue
+        step = int(step)
     # делаем ход в указанную ячейку
     if not motion_field(step, symbol):
         print("Вы ввели ошибочное значение! Введите правильное!")
